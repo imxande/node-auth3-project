@@ -13,6 +13,9 @@ const server = express();
 // importing users router here
 const usersRouter = require('../users/users-router.js');
 
+// importing auth router
+const authRouter = require('../auth/auth-router.js');
+
 // adding helmet to the server
 server.use(helmet());
 
@@ -21,6 +24,9 @@ server.use(express.json());
 
 // adding cors to server
 server.use(cors());
+
+// end point for auth 
+server.use('/api/auth', authRouter);
 
 // end point for users here
 server.use('/api/users', usersRouter);
